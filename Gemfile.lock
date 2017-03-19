@@ -16,8 +16,6 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  rack
-  rack-test
   sinatra
 
 BUNDLED WITH
