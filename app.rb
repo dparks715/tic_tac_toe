@@ -15,8 +15,9 @@ enable :sessions
 	end
 
 	post '/game' do
-		session[:opponent] = params[:opponent]
-		erb :main_board, :locals => {opponent: session[:opponent], board: session[:board]}
+		session[:player1] = params[:player1]
+		session[:player2] = params[:player2]
+		erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], board: session[:board]}
 
 	end
 

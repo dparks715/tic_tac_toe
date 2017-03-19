@@ -1,19 +1,30 @@
 <html>
 <h1>Welcome to Tic Tac Toe</h1>
-<h2>Please select the difficulty you wish to play against.</h2>
+<h2>Please select player 1 and player 2</h2>
 	<form action='/game' method='post'>
-		<select name='opponent'>
-		    <option value='Human'>Human</option>
-		    <option value='Easy'>Easy</option>
-		    <option value='Medium'>Medium</option>
-		    <option value='Impossible!'>Impossible!</option>
-		</select>
-		    <input type="submit" value="Submit">
+	<table>
+		<tr>
+			<td>
+				<select name='player1'>
+				    <option value='Human'>Human</option>
+				    <option value='Easy'>Easy</option>
+				    <option value='Medium'>Medium</option>
+				    <option value='Impossible!'>Impossible!</option>
+				</select>
+		    </td>
+
+		    <td>
+			    <select name='player2'>
+				    <option value='Human'>Human</option>
+				    <option value='Easy'>Easy</option>
+				    <option value='Medium'>Medium</option>
+				    <option value='Impossible!'>Impossible!</option>
+				    <input type="submit" value="Submit">
+				</select>
+		    </td>
+		</tr>
+	</table>
 		
 	</form>
-
-
-
-
 
 </html>
