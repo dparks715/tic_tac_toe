@@ -17,34 +17,46 @@ enable :sessions
 	post '/select_players' do
 		session[:player1] = params[:player1]
 		session[:player2] = params[:player2]
-		session[:active_player] = params[:player1]
 
-		case session[:player1]
-		when 'Human'
+		if session[:player1] == 'Human'
 			session[:player1] = Human.new('X')
-		when 'Easy'
+			session[:human1] = 'yes'
+
+		elsif session[:player1] == 'Easy'
 			session[:player1] = Sequential.new('X')
-		when 'Medium'
+
+		elsif session[:player1] == 'Medium'
 			session[:player1] = RandomAI.new('X')
-		when 'Impossible!'
+
+		elsif session[:player1] == 'Impossible!'
 			session[:player1] = UnbeatableAI.new('X')
 		else
 			redirect '/'
 		end
 
-		case session[:player2]
-		when 'Human'
+		if session[:player2] == 'Human'
 			session[:player2] = Human.new('O')
-		when 'Easy'
+			session[:human2] = 'yes'
+
+		elsif session[:player2] == 'Easy'
 			session[:player2] = Sequential.new('O')
-		when 'Medium'
+
+		elsif session[:player2] == 'Medium'
 			session[:player2] = RandomAI.new('O')
-		when 'Impossible!'
+
+		elsif session[:player2] == 'Impossible!'
 			session[:player2] = UnbeatableAI.new('O')
 		else
 			redirect '/'
 		end
-		redirect '/board'
+
+		session[:active_player] = params[:player1]
+
+		if session[:human1] == 'yes'
+			redirect '/board'
+		else
+			redirect '/make_move'
+		end
 	end
 
 	get '/board' do
@@ -52,5 +64,26 @@ enable :sessions
 		erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player], board: session[:board]}
 
 	end
+
+	get '/make_move' do
+
+		move = session[:active_player].get_move(session[:board])
+
+		redirect '/board'
+
+	end
+
+	post '/human_move' do
+
+		choice = params[:choice].to_i
+
+		if session[:board].valid_position?(choice)
+			session[:board].update_position(choice, session[:active_player].marker)
+			redirect '/board'
+		else
+			redirect '/board'
+		end
+	end
+
 
 # end
