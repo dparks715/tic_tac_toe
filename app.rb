@@ -1,5 +1,4 @@
 require 'sinatra'
-# require_relative 'TODO -CHANGE FROM CONSOLE GAME'
 require_relative 'board.rb'
 require_relative 'unbeatable.rb'
 require_relative 'player_classes.rb'
@@ -7,21 +6,19 @@ require_relative 'player_classes.rb'
 enable :sessions
 
 
-class TicTacToe < Sinatra::Base
+# class TicTacToe < Sinatra::Base
 
 	get '/' do
-		
-		erb :welcome
+		session[:board] = Board.new
+		erb :welcome, :locals => {board: session[:board]}
 
 	end
 
 	post '/get_opponent' do
 		session[:opponent] = params[:opponent]
-		board = Board.new
-		
-		erb :get_opponent, :locals => {opponent: session[:opponent], board: board}
+		erb :get_opponent, :locals => {opponent: session[:opponent], board: session[:board]}
 
 	end
 
 
-end
+# end
