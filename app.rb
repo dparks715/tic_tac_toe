@@ -17,6 +17,7 @@ enable :sessions
 	post '/select_players' do
 		session[:player1] = params[:player1]
 		session[:player2] = params[:player2]
+		session[:active_player] = params[:player1]
 
 		case session[:player1]
 		when 'Human'
@@ -43,11 +44,13 @@ enable :sessions
 		else
 			redirect '/'
 		end
-		
-
+		redirect '/board'
 	end
 
-	#erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], board: session[:board]}
+	get '/board' do
 
+		erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player], board: session[:board]}
+
+	end
 
 # end
