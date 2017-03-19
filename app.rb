@@ -15,42 +15,42 @@ enable :sessions
 	end
 
 	post '/select_players' do
-		session[:player1] = params[:player1]
-		session[:player2] = params[:player2]
+		session[:player1_type] = params[:player1]
+		session[:player2_type] = params[:player2]
 
-		if session[:player1] == 'Human'
+		if session[:player1_type] == 'Human'
 			session[:player1] = Human.new('X')
 			session[:human1] = 'yes'
 
-		elsif session[:player1] == 'Easy'
+		elsif session[:player1_type] == 'Easy'
 			session[:player1] = Sequential.new('X')
 
-		elsif session[:player1] == 'Medium'
+		elsif session[:player1_type] == 'Medium'
 			session[:player1] = RandomAI.new('X')
 
-		elsif session[:player1] == 'Impossible!'
+		elsif session[:player1_type] == 'Impossible!'
 			session[:player1] = UnbeatableAI.new('X')
 		else
 			redirect '/'
 		end
 
-		if session[:player2] == 'Human'
+		if session[:player2_type] == 'Human'
 			session[:player2] = Human.new('O')
 			session[:human2] = 'yes'
 
-		elsif session[:player2] == 'Easy'
+		elsif session[:player2_type] == 'Easy'
 			session[:player2] = Sequential.new('O')
 
-		elsif session[:player2] == 'Medium'
+		elsif session[:player2_type] == 'Medium'
 			session[:player2] = RandomAI.new('O')
 
-		elsif session[:player2] == 'Impossible!'
+		elsif session[:player2_type] == 'Impossible!'
 			session[:player2] = UnbeatableAI.new('O')
 		else
 			redirect '/'
 		end
 
-		session[:active_player] = params[:player1]
+		session[:active_player] = session[:player1]
 
 		if session[:human1] == 'yes'
 			redirect '/board'
