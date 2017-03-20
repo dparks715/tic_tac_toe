@@ -17,6 +17,8 @@ enable :sessions
 	post '/select_players' do
 		session[:player1_type] = params[:player1]
 		session[:player2_type] = params[:player2]
+		session[:human1] = 'no'
+		session[:human2] = 'no'
 
 		if session[:player1_type] == 'Human'
 			session[:player1] = Human.new('X')
@@ -80,12 +82,25 @@ enable :sessions
 
 		if session[:board].valid_position?(move)
 			session[:board].update_position(move, session[:active_player].marker)
-			# This needs to check for a winner or tie, then change player if neither are true.
+			redirect '/check_game_state'
 		else
 		 	redirect '/board'
 		end
 
 		#erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player], board: session[:board]}
+	end
+
+	get '/check_game_state' do
+
+		if session[:board].winner?
+			#This needs to redirect to a winner page.
+		elsif session[:board].full_board?
+			#Go to tie page.
+		else
+			#change player here, or redirect to change player and back.
+			#determine whether player is human, send to correct route.
+		end
+
 	end
 
 
