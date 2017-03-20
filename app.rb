@@ -1,5 +1,5 @@
 require 'sinatra'
-require_relative 'board.rb'
+require_relative 'board_app.rb'
 require_relative 'unbeatable.rb'
 require_relative 'player_classes.rb'
 
@@ -75,14 +75,16 @@ enable :sessions
 
 	post '/human_move' do
 
-		choice = params[:choice].to_i
+		move = params[:choice].to_i
 
-		if session[:board].valid_position?(choice)
-			session[:board].update_position(choice, session[:active_player].marker)
-			redirect '/board'
-		else
-			redirect '/board'
-		end
+		# if session[:board].valid_position?(move)
+			session[:board].update_position(move, session[:active_player].marker)
+			
+		# else
+		 	redirect '/board'
+		# end
+
+		#erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player], board: session[:board]}
 	end
 
 
