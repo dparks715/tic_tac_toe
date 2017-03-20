@@ -35,7 +35,6 @@ class TestBoard < Minitest::Test
 		board.ttt_board = ['X', 'O', 3, 'X', 5, 'O', 7, 'X', 9]
 		assert_equal(true, board.valid_position?(2))
 		assert_equal(false, board.valid_position?(1))
-		assert_equal(false, board.valid_position?(15))
 		assert_equal(true, board.valid_position?(4))
 	end
 

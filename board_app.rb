@@ -12,7 +12,7 @@ class Board
 
 	def valid_position?(position)
 
-		if ttt_board[position].class == Fixnum
+		if ttt_board[position] != 'X' && ttt_board[position] != 'O'
 			true
 		else
 			false
