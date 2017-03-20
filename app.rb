@@ -76,6 +76,7 @@ enable :sessions
 	post '/human_move' do
 
 		move = params[:choice].to_i
+		move = move - 1
 
 		# if session[:board].valid_position?(move)
 			session[:board].update_position(move, session[:active_player].marker)
