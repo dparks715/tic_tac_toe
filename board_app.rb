@@ -31,10 +31,10 @@ class Board
 	end
 
 	def full_board?
-		if ttt_board.include?(' ')
-			false
-		else
+		if ttt_board.all? { |x| x.is_a?(String) }
 			true
+		else
+			false
 		end
 	end
 

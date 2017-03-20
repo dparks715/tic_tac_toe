@@ -80,7 +80,7 @@ enable :sessions
 
 		if session[:board].valid_position?(move)
 			session[:board].update_position(move, session[:active_player].marker)
-			redirect '/board'
+			# This needs to check for a winner or tie, then change player if neither are true.
 		else
 		 	redirect '/board'
 		end
