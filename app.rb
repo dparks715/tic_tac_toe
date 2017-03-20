@@ -1,7 +1,7 @@
 require 'sinatra'
 require_relative 'board_app.rb'
 require_relative 'unbeatable.rb'
-require_relative 'player_classes.rb'
+require_relative 'classes_app.rb'
 
 enable :sessions
 
@@ -93,7 +93,7 @@ enable :sessions
 
 	get '/check_game_state' do
 
-		if session[:board].winner?
+		if session[:board].winner?(session[:active_player].marker)
 			#This needs to redirect to a winner page.
 		elsif session[:board].full_board?
 			#Go to tie page.
