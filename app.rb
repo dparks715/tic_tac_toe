@@ -70,7 +70,6 @@ enable :sessions
 	get '/make_move' do
 
 		move = session[:active_player].get_move(session[:board])
-		move = move - 1
 
 		redirect '/check_game_state'
 
@@ -88,15 +87,14 @@ enable :sessions
 		 	redirect '/board'
 		end
 
-		#erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player], board: session[:board]}
 	end
 
 	get '/check_game_state' do
 
 		if session[:board].winner?(session[:active_player].marker)
-			#This needs to redirect to a winner page.
+			redirect '/winner'
 		elsif session[:board].full_board?
-			#Go to tie page.
+			redirect '/tie'
 		else
 			redirect '/change_player'
 		end
@@ -116,6 +114,18 @@ enable :sessions
 		else
 			redirect '/make_move'
 		end
+
+	end
+
+	get '/winner' do
+
+		erb :winner, :locals => {active_player: session[:active_player].marker}
+
+	end
+
+	get '/tie' do
+
+		erb :tie
 
 	end
 
