@@ -78,12 +78,12 @@ enable :sessions
 		move = params[:choice].to_i
 		move = move - 1
 
-		# if session[:board].valid_position?(move)
+		if session[:board].valid_position?(move)
 			session[:board].update_position(move, session[:active_player].marker)
-			
-		# else
+			redirect '/board'
+		else
 		 	redirect '/board'
-		# end
+		end
 
 		#erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player], board: session[:board]}
 	end
