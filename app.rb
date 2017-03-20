@@ -70,8 +70,9 @@ enable :sessions
 	get '/make_move' do
 
 		move = session[:active_player].get_move(session[:board])
+		move = move - 1
 
-		redirect '/board'
+		redirect '/check_game_state'
 
 	end
 
@@ -97,8 +98,23 @@ enable :sessions
 		elsif session[:board].full_board?
 			#Go to tie page.
 		else
-			#change player here, or redirect to change player and back.
-			#determine whether player is human, send to correct route.
+			redirect '/change_player'
+		end
+
+	end
+
+	get '/change_player' do
+
+		if session[:active_player] == session[:player1]
+			session[:active_player] = session[:player2]
+		else
+			session[:active_player] = session[:player1]
+		end
+
+		if session[:active_player] == session[:player1] && session[:human1] == 'yes' || session[:active_player] == session[:player2] && session[:human2] == 'yes'
+			redirect '/board'
+		else
+			redirect '/make_move'
 		end
 
 	end
