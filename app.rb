@@ -1,6 +1,6 @@
 require 'sinatra'
 require_relative 'board_app.rb'
-require_relative 'unbeatable.rb'
+require_relative 'unbeatable_app.rb'
 require_relative 'classes_app.rb'
 
 enable :sessions
