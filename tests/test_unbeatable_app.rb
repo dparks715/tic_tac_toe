@@ -95,49 +95,49 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(2, newAI.check_for_fork(["X", 2, 3, 4, 5, 6, "O", "X", "O"]))
 	end
 
-	# #BLOCK FORK TESTS
+	#BLOCK FORK TESTS
 
-	# def test_X_blocks_fork
-	# 	newAI = UnbeatableAI.new('X')
-	# 	assert_equal(4, newAI.block_fork(['O', 'X', ' ', 'X', ' ', ' ', 'O', ' ', ' ']))
-	# end
+	def test_X_blocks_fork
+		newAI = UnbeatableAI.new('X')
+		assert_equal(4, newAI.block_fork(['O', 'X', 3, 'X', 5, 6, 'O', 8, 9]))
+	end
 
-	# def test_O_fork_blocks_zero
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(0, newAI.block_fork([" ", "X", " ", " ", "X", "O", " ", "O", " "]))
-	# end
+	def test_O_fork_blocks_zero
+		newAI = UnbeatableAI.new("O")
+		assert_equal(0, newAI.block_fork([1, "X", 3, 4, "X", "O", 7, "O", 9]))
+	end
 
-	# def test_O_fork_block_six
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(6, newAI.block_fork([" ", "O", " ", " ", "X", "O", " ", "X", " "]))
-	# end
+	def test_O_fork_block_six
+		newAI = UnbeatableAI.new("O")
+		assert_equal(6, newAI.block_fork([1, "O", 3, 4, "X", "O", 7, "X", 9]))
+	end
 
-	# def test_O_fork_block_two
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(2, newAI.block_fork(["O", " ", " ", " ", " ", " ", "X", "O", "X"]))
-	# end
+	def test_O_fork_block_two
+		newAI = UnbeatableAI.new("O")
+		assert_equal(2, newAI.block_fork(["O", 2, 3, 4, 5, 6, "X", "O", "X"]))
+	end
 
-	# def test_O_blocks_X_corners
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(3, newAI.block_fork([" ", " ", "X", " ", "O", " ", "X", " ", " "]))
-	# end
+	def test_O_blocks_X_corners
+		newAI = UnbeatableAI.new("O")
+		assert_equal(3, newAI.block_fork([1, 2, "X", 4, "O", 6, "X", 8, 9]))
+	end
 
-	# def test_O_blocks_X_corners_opposite
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(3, newAI.block_fork(["X", " ", " ", " ", "O", " ", " ", " ", "X"]))
-	# end
+	def test_O_blocks_X_corners_opposite
+		newAI = UnbeatableAI.new("O")
+		assert_equal(3, newAI.block_fork(["X", 2, 3, 4, "O", 6, 7, 8, "X"]))
+	end
 
-	# def test_X_blocks_O_corners
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(3, newAI.block_fork([" ", " ", "O", " ", "X", " ", "O", " ", " "]))
-	# end
+	def test_X_blocks_O_corners
+		newAI = UnbeatableAI.new("X")
+		assert_equal(3, newAI.block_fork([1, 2, "O", 4, "X", 6, "O", 8, 9]))
+	end
 
-	# def test_X_blocks_O_corners_opposite
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(3, newAI.block_fork(["O", " ", " ", " ", "X", " ", " ", " ", "O"]))
-	# end
+	def test_X_blocks_O_corners_opposite
+		newAI = UnbeatableAI.new("X")
+		assert_equal(3, newAI.block_fork(["O", 2, 3, 4, "X", 6, 7, 8, "O"]))
+	end
 
-	# # CENTER TESTS
+	# CENTER TESTS
 
 	# def test_X_takes_center
 	# 	newAI = UnbeatableAI.new("X")

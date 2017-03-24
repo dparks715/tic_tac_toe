@@ -75,11 +75,11 @@ class UnbeatableAI
 		# should prevent the other double fork scenarios.
 		# Need to change this later to be more flexible.
 
-		if ttt_board == [" ", " ", opponent, " ", marker, " ", opponent, " ", " "]
+		if ttt_board == [1, 2, opponent, 4, marker, 6, opponent, 8, 9]
 
 			move = 3
 
-		elsif ttt_board == [opponent, " ", " ", " ", marker, " ", " ", " ", opponent]
+		elsif ttt_board == [opponent, 2, 3, 4, marker, 6, 7, 8, opponent]
 
 			move = 3
 
