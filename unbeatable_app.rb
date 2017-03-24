@@ -115,8 +115,8 @@ class UnbeatableAI
 		move = 10
 
 		board_corners.each_with_index do |value, pos|
-			if value.count(opponent) == 1 && value.count(" ") == 1
-				results = value.index(' ')
+			if value.count(opponent) == 1 && value.count { |x| x.is_a?(Integer) } == 1
+				results = value.index { |x| x.is_a?(Integer) }
 				move = corner_combos[pos][results]
 			end
 			
@@ -132,7 +132,7 @@ class UnbeatableAI
 		empty = []
 
 		corners.each do |pos|
-			if ttt_board[pos] == ' '
+			if ttt_board[pos].is_a?(Integer)
 				empty << pos
 			end
 		end
@@ -152,7 +152,7 @@ class UnbeatableAI
 		empty = []
 
 		sides.each do |pos|
-			if ttt_board[pos] == ' '
+			if ttt_board[pos].is_a?(Integer)
 				empty << pos
 			end
 		end

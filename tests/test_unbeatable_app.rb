@@ -166,170 +166,170 @@ class TestUnbeatableAI < Minitest::Test
 
 	# OPPOSITE CORNER TESTS
 
-	# def test_X_takes_8_when_O1
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(8, newAI.opposite_corner(["O", " ", " ", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_X_takes_8_when_O1
+		newAI = UnbeatableAI.new("X")
+		assert_equal(8, newAI.opposite_corner(['O',2,3,4,5,6,7,8,9]))
+	end
 
-	# def test_X_takes_6_when_O2
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(6, newAI.opposite_corner([" ", " ", "O", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_X_takes_6_when_O2
+		newAI = UnbeatableAI.new("X")
+		assert_equal(6, newAI.opposite_corner([1,2,'O',4,5,6,7,8,9]))
+	end
 
-	# def test_X_takes_2_when_O6
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(2, newAI.opposite_corner([" ", " ", " ", " ", " ", " ", "O", " ", " "]))
-	# end
+	def test_X_takes_2_when_O6
+		newAI = UnbeatableAI.new("X")
+		assert_equal(2, newAI.opposite_corner([1,2,3,4,5,6,'O',8,9]))
+	end
 
-	# def test_X_takes_0_when_O_0
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(0, newAI.opposite_corner([" ", " ", " ", " ", " ", " ", " ", " ", "O"]))
-	# end
+	def test_X_takes_0_when_O_0
+		newAI = UnbeatableAI.new("X")
+		assert_equal(0, newAI.opposite_corner([1,2,3,4,5,6,7,8,'O']))
+	end
 
-	# def test_O_takes_8_when_X1
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(8, newAI.opposite_corner(["X", " ", " ", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_O_takes_8_when_X1
+		newAI = UnbeatableAI.new("O")
+		assert_equal(8, newAI.opposite_corner(['X',2,3,4,5,6,7,8,9]))
+	end
 
-	# def test_O_takes_6_when_X2
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(6, newAI.opposite_corner([" ", " ", "X", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_O_takes_6_when_X2
+		newAI = UnbeatableAI.new("O")
+		assert_equal(6, newAI.opposite_corner([1,2,'X',4,5,6,7,8,9]))
+	end
 
-	# def test_O_takes_2_when_X6
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(2, newAI.opposite_corner([" ", " ", " ", " ", " ", " ", "X", " ", " "]))
-	# end
+	def test_O_takes_2_when_X6
+		newAI = UnbeatableAI.new("O")
+		assert_equal(2, newAI.opposite_corner([1,2,3,4,5,6,'X',8,9]))
+	end
 
-	# def test_O_takes_0_when_X_0
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(0, newAI.opposite_corner([" ", " ", " ", " ", " ", " ", " ", " ", "X"]))
-	# end
+	def test_O_takes_0_when_X_0
+		newAI = UnbeatableAI.new("O")
+		assert_equal(0, newAI.opposite_corner([1,2,3,4,5,6,7,8,'X']))
+	end
 
-	# def test_O_fails_to_corner
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(10, newAI.opposite_corner(["X", " ", "X", " ", " ", " ", "X", " ", "X"]))
-	# end
+	def test_O_fails_to_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(10, newAI.opposite_corner(['X',2,'X',4,5,6,'X',8,'X']))
+	end
 
-	# def test_O_takes_8
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(8, newAI.opposite_corner(["X", "O", "O", " ", "X", "O", "O", " ", " "]))
-	# end
+	def test_O_takes_8
+		newAI = UnbeatableAI.new("O")
+		assert_equal(8, newAI.opposite_corner(["X", "O", "O", 4, "X", "O", "O", 7, 9]))
+	end
 
-	# # EMPTY CORNER TESTS
+	# EMPTY CORNER TESTS
 
-	# def test_O_takes_first_empty_corner
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(0, newAI.empty_corner([" ", " ", "X", " ", "O", " ", "X", "O", "X"]))
-	# end
+	def test_O_takes_first_empty_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(0, newAI.empty_corner([1, 2, "X", 4, "O", 6, "X", "O", "X"]))
+	end
 
-	# def test_O_takes_second_empty_corner
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(2, newAI.empty_corner(["O", " ", " ", " ", "O", " ", "X", "O", "X"]))
-	# end
+	def test_O_takes_second_empty_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(2, newAI.empty_corner(["O", 2, 3, 4, "O", 6, "X", "O", "X"]))
+	end
 
-	# def test_O_takes_6_empty_corner
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(6, newAI.empty_corner(["O", " ", "X", " ", "O", " ", " ", "O", "X"]))
-	# end
+	def test_O_takes_6_empty_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(6, newAI.empty_corner(["O", 2, "X", 4, "O", 6, 7, "O", "X"]))
+	end
 
-	# def test_O_takes_8_empty_corner
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(8, newAI.empty_corner(["O", " ", "X", " ", "O", " ", "X", "O", " "]))
-	# end
+	def test_O_takes_8_empty_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(8, newAI.empty_corner(["O", 2, "X", 4, "O", 6, "X", "O", 9]))
+	end
 
-	# def test_O_empty_board_first_corner
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(0, newAI.empty_corner([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_O_empty_board_first_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(0, newAI.empty_corner([1,2,3,4,5,6,7,8,9]))
+	end
 
-	# # SIDES TESTS
+	# SIDES TESTS
 
-	# def test_O_takes_top_side
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(1, newAI.empty_side(["X", " ", "X", " ", "O", " ", " ", "O", "X"]))
-	# end
+	def test_O_takes_top_side
+		newAI = UnbeatableAI.new("O")
+		assert_equal(1, newAI.empty_side(["X", 2, "X", 4, "O", 6, 7, "O", "X"]))
+	end
 
-	# def test_O_takes_left_side
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(3, newAI.empty_side(["O", "X", " ", " ", "O", " ", "X", "O", "X"]))
-	# end
+	def test_O_takes_left_side
+		newAI = UnbeatableAI.new("O")
+		assert_equal(3, newAI.empty_side(["O", "X", 3, 4, "O", 6, "X", "O", "X"]))
+	end
 
-	# def test_O_takes_right_side
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(5, newAI.empty_side([" ", "O", "X", "X", "O", " ", "X", "O", "X"]))
-	# end
+	def test_O_takes_right_side
+		newAI = UnbeatableAI.new("O")
+		assert_equal(5, newAI.empty_side([1, "O", "X", "X", "O", 6, "X", "O", "X"]))
+	end
 
-	# def test_O_takes_bottom_side
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(7, newAI.empty_side(["O", "O", " ", "X", " ", "X", "O", " ", "X"]))
-	# end
+	def test_O_takes_bottom_side
+		newAI = UnbeatableAI.new("O")
+		assert_equal(7, newAI.empty_side(["O", "O", 3, "X", 5, "X", "O", 8, "X"]))
+	end
 
-	# def test_O_empty_board_top_side
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(1, newAI.empty_side([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_O_empty_board_top_side
+		newAI = UnbeatableAI.new("O")
+		assert_equal(1, newAI.empty_side([1,2,3,4,5,6,7,8,9]))
+	end
 
-	# # TEST GET MOVE FINAL
+	# TEST GET MOVE FINAL
 
-	# def test_X_takes_center_empty
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(4, newAI.get_move([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_X_takes_center_empty
+		newAI = UnbeatableAI.new("X")
+		assert_equal(4, newAI.get_move([1,2,3,4,5,6,7,8,9]))
+	end
 
-	# def test_O_takes_center_empty
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(4, newAI.get_move([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_O_takes_center_empty
+		newAI = UnbeatableAI.new("O")
+		assert_equal(4, newAI.get_move([1,2,3,4,5,6,7,8,9]))
+	end
 
-	# def test_X_takes_empty_corner_0
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(0, newAI.get_move([" ", " ", " ", " ", "O", " ", " ", " ", " "]))
-	# end
+	def test_X_takes_empty_corner_0
+		newAI = UnbeatableAI.new("X")
+		assert_equal(0, newAI.get_move([1,2,3,4,'O',6,7,8,9]))
+	end
 
-	# def test_O_takes_empty_corner_0
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(0, newAI.get_move([" ", " ", " ", " ", "X", " ", " ", " ", " "]))
-	# end
+	def test_O_takes_empty_corner_0
+		newAI = UnbeatableAI.new("X")
+		assert_equal(0, newAI.get_move([1,2,3,4,'X',6,7,8,9]))
+	end
 
-	# def test_X_takes_top_right_corner
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(2, newAI.get_move(["X", " ", " ", " ", "O", " ", " ", " ", " "]))
-	# end
+	def test_X_takes_top_right_corner
+		newAI = UnbeatableAI.new("X")
+		assert_equal(2, newAI.get_move(['X',2,3,4,'O',6,7,8,9]))
+	end
 
-	# def test_O_takes_top_right_corner
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(2, newAI.get_move(["O", " ", " ", " ", "X", " ", " ", " ", " "]))
-	# end
+	def test_O_takes_top_right_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(2, newAI.get_move(['O',2,3,4,'X',6,7,8,9]))
+	end
 
-	# def test_X_takes_opposite_corner
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(8, newAI.get_move(["O", " ", " ", " ", "X", " ", " ", " ", " "]))
-	# end
+	def test_X_takes_opposite_corner
+		newAI = UnbeatableAI.new("X")
+		assert_equal(8, newAI.get_move(['O',2,3,4,'X',6,7,8,9]))
+	end
 
-	# def test_O_takes_opposite_corner
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(8, newAI.get_move(["X", " ", " ", " ", "O", " ", " ", " ", " "]))
-	# end
+	def test_O_takes_opposite_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(8, newAI.get_move(['X',2,3,4,'O',6,7,8,9]))
+	end
 
-	# def test_X_takes_3_to_block_double_fork
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(3, newAI.get_move(["O", " ", " ", " ", "X", " ", " ", " ", "O"]))
-	# end
+	def test_X_takes_3_to_block_double_fork
+		newAI = UnbeatableAI.new("X")
+		assert_equal(3, newAI.get_move(['O',2,3,4,'X',6,7,8,'O']))
+	end
 
-	# def test_O_takes_3_to_block_double_fork
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(3, newAI.get_move(["X", " ", " ", " ", "O", " ", " ", " ", "X"]))
-	# end
+	def test_O_takes_3_to_block_double_fork
+		newAI = UnbeatableAI.new("O")
+		assert_equal(3, newAI.get_move(['X',2,3,4,'O',6,7,8,'X']))
+	end
 
-	# def test_X_takes_the_win
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(2, newAI.get_move(["X", "X", " ", " ", " ", " ", "O", " ", "O"]))
-	# end
+	def test_X_takes_the_win
+		newAI = UnbeatableAI.new("X")
+		assert_equal(2, newAI.get_move(["X", "X", 3, 4, 5, 6, "O", 8, "O"]))
+	end
 
-	# def test_O_takes_the_win
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(1, newAI.get_move(["O", " ", "O", " ", " ", " ", "X", " ", "X"]))
-	# end
+	def test_O_takes_the_win
+		newAI = UnbeatableAI.new("O")
+		assert_equal(1, newAI.get_move(["O", 2, "O", 4, 5, 6, "X", 8, "X"]))
+	end
 
 end
