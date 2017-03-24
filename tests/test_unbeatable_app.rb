@@ -139,32 +139,32 @@ class TestUnbeatableAI < Minitest::Test
 
 	# CENTER TESTS
 
-	# def test_X_takes_center
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(4, newAI.take_center([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_X_takes_center
+		newAI = UnbeatableAI.new("X")
+		assert_equal(4, newAI.take_center([1,2,3,4,5,6,7,8,9]))
+	end
 
-	# def test_O_takes_center
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(4, newAI.take_center([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
-	# end
+	def test_O_takes_center
+		newAI = UnbeatableAI.new("O")
+		assert_equal(4, newAI.take_center([1,2,3,4,5,6,7,8,9]))
+	end
 
-	# def test_X_takes_center_fail
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(10, newAI.take_center([" ", " ", " ", " ", "O", " ", " ", " ", " "]))
-	# end
+	def test_X_takes_center_fail
+		newAI = UnbeatableAI.new("X")
+		assert_equal(10, newAI.take_center([1,2,3,4,'O',6,7,8,9]))
+	end
 
-	# def test_O_takes_center_fail
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(10, newAI.take_center([" ", " ", " ", " ", "X", " ", " ", " ", " "]))
-	# end
+	def test_O_takes_center_fail
+		newAI = UnbeatableAI.new("O")
+		assert_equal(10, newAI.take_center([1,2,3,4,'X',6,7,8,9]))
+	end
 
-	# def test_X_takes_center_various_fills
-	# 	newAI = UnbeatableAI.new("X")
-	# 	assert_equal(4, newAI.take_center(["X", "X", " ", " ", " ", "O", "O", " ", " "]))
-	# end
+	def test_X_takes_center_various_fills
+		newAI = UnbeatableAI.new("X")
+		assert_equal(4, newAI.take_center(["X", "X", 3, 4, 5, "O", "O", 8, 9]))
+	end
 
-	# # OPPOSITE CORNER TESTS
+	# OPPOSITE CORNER TESTS
 
 	# def test_X_takes_8_when_O1
 	# 	newAI = UnbeatableAI.new("X")

@@ -98,7 +98,7 @@ class UnbeatableAI
 	end
 
 	def take_center(ttt_board)
-		if ttt_board[4] == " "
+		if ttt_board[4].is_a?(Integer)
 			move = 4
 		else
 			move = 10
