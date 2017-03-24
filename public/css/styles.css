@@ -18,3 +18,13 @@
 	height: 100%;
 	font-size: 70px;
 }
+
+.win_display {
+	text-align: center;
+	vertical-align: center;
+	font-size: 80px;
+}
+
+.link_font {
+	font-size: 26px;
+}

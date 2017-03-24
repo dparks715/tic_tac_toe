@@ -120,7 +120,7 @@ enable :sessions
 
 	get '/winner' do
 
-		erb :winner, :locals => {active_player: session[:active_player].marker}
+		erb :winner, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player].marker, board: session[:board]}
 
 	end
 
