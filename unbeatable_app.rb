@@ -206,8 +206,8 @@ class UnbeatableAI
 		win_combos.each_with_index do |val, pos|
 
 			if
-				val.count(player) == 2 && val.count(' ') == 1
-				results = val.index(' ')
+				val.count(player) == 2 && val.count { |x| x.is_a?(Integer) } == 1
+				results = val.index { |x| x.is_a?(Integer) }
 				move = winners[pos][results]
 			else
 				move
