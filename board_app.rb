@@ -12,7 +12,7 @@ class Board
 
 	def valid_position?(position)
 
-		if ttt_board[position] != 'X' && ttt_board[position] != 'O'
+		if ttt_board[position] != 'X' && ttt_board[position] != 'O' && position.between?(0,8)
 			true
 		else
 			false
