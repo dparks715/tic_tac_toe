@@ -3,6 +3,9 @@ require_relative '../unbeatable_app.rb'
 
 class TestUnbeatableAI < Minitest::Test
 
+	# TESTING ARRAY WITH INTEGER 1-9
+	# Expected value is index pos, not element value
+
 	def test_marker
 		newAI = UnbeatableAI.new('X')
 		assert_equal('X', newAI.marker)		
@@ -10,33 +13,33 @@ class TestUnbeatableAI < Minitest::Test
 
 	def test_go_for_win
 		newAI = UnbeatableAI.new('X')
-		assert_equal(2, newAI.win(['X', 'X', 3, 4, 5, 6, 'O', 7, 'O']))
+		assert_equal(2, newAI.win(['X','X',3,4,5,6,'O',7,'O']))
 	end
 
-	# def test_go_for_win_345
-	# 	newAI = UnbeatableAI.new('X')
-	# 	assert_equal(4, newAI.win([' ', ' ', ' ', 'X', ' ', 'X', ' ', ' ', ' ']))
-	# end
+	def test_go_for_win_456
+		newAI = UnbeatableAI.new('X')
+		assert_equal(4, newAI.win([1,2,3,'X',5,'X',7,8,9]))
+	end
 
-	# def test_go_for_win_678
-	# 	newAI = UnbeatableAI.new('X')
-	# 	assert_equal(8, newAI.win([' ', ' ', ' ', ' ', ' ', ' ', 'X', 'X', ' ']))
-	# end
+	def test_go_for_win_789
+		newAI = UnbeatableAI.new('X')
+		assert_equal(8, newAI.win([1,2,3,4,5,6,'X','X',9]))
+	end
 
-	# def test_go_for_win_246
-	# 	newAI = UnbeatableAI.new('X')
-	# 	assert_equal(6, newAI.win([' ', ' ', 'X', ' ', 'X', ' ', ' ', ' ', ' ']))
-	# end
+	def test_go_for_win_357
+		newAI = UnbeatableAI.new('X')
+		assert_equal(6, newAI.win([1,2,'X',4,'X',6,7,8,9]))
+	end
 
-	# def test_go_for_win_246_O
-	# 	newAI = UnbeatableAI.new('O')
-	# 	assert_equal(6, newAI.win([' ', ' ', 'O', ' ', 'O', ' ', ' ', ' ', ' ']))
-	# end
+	def test_go_for_win_357_O
+		newAI = UnbeatableAI.new('O')
+		assert_equal(6, newAI.win([1,2,'O',4,'O',6,7,8,9]))
+	end
 
-	# def test_go_for_win_678_O
-	# 	newAI = UnbeatableAI.new('O')
-	# 	assert_equal(8, newAI.win([' ', ' ', ' ', ' ', ' ', ' ', 'O', 'O', ' ']))
-	# end
+	def test_go_for_win_789_O
+		newAI = UnbeatableAI.new('O')
+		assert_equal(8, newAI.win([1,2,3,4,5,6,'O','O',9]))
+	end
 
 	# #BLOCK TESTS
 
