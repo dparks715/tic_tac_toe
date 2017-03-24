@@ -41,37 +41,37 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(8, newAI.win([1,2,3,4,5,6,'O','O',9]))
 	end
 
-	# #BLOCK TESTS
+	#BLOCK TESTS
 
-	# def test_for_block_O_win
-	# 	newAI = UnbeatableAI.new('X')
-	# 	assert_equal(1, newAI.block(['O', ' ', 'O', 'X', ' ', ' ', ' ', ' ', ' ']))	
-	# end
+	def test_for_block_O_win
+		newAI = UnbeatableAI.new('X')
+		assert_equal(1, newAI.block(['O', 2, 'O', 'X', 5, 6, 7, 8, 9]))	
+	end
 
-	# def test_for_block_O_win_345
-	# 	newAI = UnbeatableAI.new('X')
-	# 	assert_equal(4, newAI.block([' ', ' ', 'X', 'O', ' ', 'O', ' ', ' ', ' ']))	
-	# end
+	def test_for_block_O_win_345
+		newAI = UnbeatableAI.new('X')
+		assert_equal(4, newAI.block([1, 2, 'X', 'O', 5, 'O', 7, 8, 9]))	
+	end
 
-	# def test_for_block_O_win_678
-	# 	newAI = UnbeatableAI.new('X')
-	# 	assert_equal(7, newAI.block([' ', ' ', 'X', ' ', ' ', ' ', 'O', ' ', 'O']))	
-	# end
+	def test_for_block_O_win_678
+		newAI = UnbeatableAI.new('X')
+		assert_equal(7, newAI.block([1, 2, 'X', 4, 5, 6, 'O', 8, 'O']))	
+	end
 
-	# def test_for_block_X_win_678
-	# 	newAI = UnbeatableAI.new('O')
-	# 	assert_equal(7, newAI.block([' ', ' ', 'O', ' ', ' ', ' ', 'X', ' ', 'X']))	
-	# end
+	def test_for_block_X_win_678
+		newAI = UnbeatableAI.new('O')
+		assert_equal(7, newAI.block([1, 2, 'O', 4, 5, 6, 'X', 8, 'X']))	
+	end
 
-	# def test_for_block_X_win_246
-	# 	newAI = UnbeatableAI.new('O')
-	# 	assert_equal(6, newAI.block(['X', ' ', 'X', ' ', 'X', 'O', ' ', 'X', 'O']))	
-	# end
+	def test_for_block_X_win_246
+		newAI = UnbeatableAI.new('O')
+		assert_equal(6, newAI.block(['X', 2, 'X', 4, 'X', 'O', 7, 'X', 'O']))	
+	end
 
-	# def test_no_block_no_win
-	# 	newAI = UnbeatableAI.new('O')
-	# 	assert_equal(10, newAI.block(['X', ' ', ' ', ' ', ' ', 'O', ' ', ' ', ' ']))	
-	# end
+	def test_no_block_no_win
+		newAI = UnbeatableAI.new('O')
+		assert_equal(10, newAI.block(['X', 2, 3, 4, 5, 'O', 7, 8, 9]))	
+	end
 
 	# # FORK TESTS
 
