@@ -17,7 +17,8 @@ class Sequential < Player
 
 	attr_accessor :marker
 	def get_move(board_state)
-		board_state.index { |x| x.is_a?(Integer) }
+		board_state[-1] = 'Hi'
+		#board_state.index { |x| x.is_a?(Integer) }
 	end
 
 end

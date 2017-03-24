@@ -69,7 +69,7 @@ enable :sessions
 
 	get '/make_move' do
 
-		move = session[:active_player].get_move(session[:board].ttt_board)
+		session[:active_player].get_move(session[:board].ttt_board)
 
 		redirect '/check_game_state'
 
