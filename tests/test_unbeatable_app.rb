@@ -80,20 +80,20 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(4, newAI.check_for_fork(['X', 'O', 3, 'O', 5, 6, 'X', 8, 9]))
 	end
 
-	# def test_O_fork_returns_zero
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(0, newAI.check_for_fork([" ", "O", " ", " ", "O", "X", " ", "X", " "]))
-	# end
+	def test_O_fork_returns_zero
+		newAI = UnbeatableAI.new("O")
+		assert_equal(0, newAI.check_for_fork([1, "O", 3, 4, "O", "X", 7, "X", 9]))
+	end
 
-	# def test_O_fork_returns_six
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(6, newAI.check_for_fork([" ", "X", " ", " ", "O", "X", " ", "O", " "]))
-	# end
+	def test_O_fork_returns_six
+		newAI = UnbeatableAI.new("O")
+		assert_equal(6, newAI.check_for_fork([1, "X", 3, 4, "O", "X", 7, "O", 9]))
+	end
 
-	# def test_O_fork_returns_two
-	# 	newAI = UnbeatableAI.new("O")
-	# 	assert_equal(2, newAI.check_for_fork(["X", " ", " ", " ", " ", " ", "O", "X", "O"]))
-	# end
+	def test_O_fork_returns_two
+		newAI = UnbeatableAI.new("O")
+		assert_equal(2, newAI.check_for_fork(["X", 2, 3, 4, 5, 6, "O", "X", "O"]))
+	end
 
 	# #BLOCK FORK TESTS
 
