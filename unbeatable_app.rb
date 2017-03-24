@@ -236,7 +236,7 @@ class UnbeatableAI
 		i = []
 		
 		fork_combinations.each_with_index do |forking_line, index|
-			if forking_line.count(player) == 1 && forking_line.count(" ") == 2
+			if forking_line.count(player) == 1 && forking_line.count { |x| x.is_a?(Integer) } == 2
 				i.push(index)
 			end
 		end
@@ -249,7 +249,7 @@ class UnbeatableAI
 
 		intersections = []
 		fork_spot.each do |spot|
-			if ttt_board[spot] == " "
+			if ttt_board[spot].is_a?(Integer)
 				intersections.push(spot)
 			end
 		end
