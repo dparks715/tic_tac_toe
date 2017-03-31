@@ -78,8 +78,7 @@ enable :sessions
 
 	post '/human_move' do
 
-		move = params[:choice].to_i
-		move = move - 1
+		move = params[:choice].to_i - 1
 
 		if session[:board].valid_position?(move)
 			session[:board].update_position(move, session[:active_player].marker)
@@ -93,9 +92,17 @@ enable :sessions
 	get '/check_game_state' do
 
 		if session[:board].winner?(session[:active_player].marker)
-			redirect '/winner'
+
+			message = "#{session[:active_player].marker} is the winner!"
+
+			erb :game_over, :locals => {board: session[:board], message: message}
+		
 		elsif session[:board].full_board?
-			redirect '/tie'
+
+			message = "The game is a tie!"
+		
+			erb :game_over, :locals => {board: session[:board], message: message}
+		
 		else
 			redirect '/change_player'
 		end
@@ -117,18 +124,5 @@ enable :sessions
 		end
 
 	end
-
-	get '/winner' do
-
-		erb :winner, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player].marker, board: session[:board]}
-
-	end
-
-	get '/tie' do
-
-		erb :tie, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player].marker, board: session[:board]}
-
-	end
-
 
 # end
