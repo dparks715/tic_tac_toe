@@ -63,7 +63,7 @@ enable :sessions
 
 	get '/board' do
 
-		erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player], board: session[:board]}
+		erb :main_board, :locals => {player1: session[:player1], player2: session[:player2], active_player: session[:active_player].marker, board: session[:board]}
 
 	end
 
