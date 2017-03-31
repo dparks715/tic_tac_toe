@@ -29,3 +29,32 @@
 .link_font {
 	font-size: 26px;
 }
+
+.title {
+	font-family: Tahoma, sans-serif;
+	font-size: 2em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	color: white;
+	border-style: groove;
+	padding: 2px;
+	border-color: #262626;
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.65) 47%, rgba(0,0,0,0) 87%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.65) 47%,rgba(0,0,0,0) 87%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(to right, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.65) 47%,rgba(0,0,0,0) 87%,rgba(0,0,0,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 );
+}
+
+.title_2 {
+	font-family: Tahoma, sans-serif;
+	font-size: 1.3em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+}
+
+.bold {
+	font-weight: 600;
+}
+
