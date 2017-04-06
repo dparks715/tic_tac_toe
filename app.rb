@@ -9,6 +9,7 @@ enable :sessions
 # class TicTacToe < Sinatra::Base
 
 	get '/' do
+	
 		session[:board] = Board.new
 		erb :welcome, :locals => {board: session[:board]}
 
@@ -32,8 +33,8 @@ enable :sessions
 
 		elsif session[:player1_type] == 'Impossible!'
 			session[:player1] = UnbeatableAI.new('X')
-		else
-			redirect '/'
+		# else
+		# 	redirect '/'
 		end
 
 		if session[:player2_type] == 'Human'
@@ -48,8 +49,8 @@ enable :sessions
 
 		elsif session[:player2_type] == 'Impossible!'
 			session[:player2] = UnbeatableAI.new('O')
-		else
-			redirect '/'
+		# else
+		# 	redirect '/'
 		end
 
 		session[:active_player] = session[:player1]
@@ -68,7 +69,6 @@ enable :sessions
 	end
 
 	get '/make_move' do
-
 		move = session[:active_player].get_move(session[:board].ttt_board)
 		session[:board].update_position(move, session[:active_player].marker)
 
@@ -104,25 +104,48 @@ enable :sessions
 			erb :game_over, :locals => {board: session[:board], message: message}
 		
 		else
-			redirect '/change_player'
+			if session[:active_player] == session[:player1]
+				session[:active_player] = session[:player2]
+			else
+				session[:active_player] = session[:player1]
+			end
+
+			if session[:active_player] == session[:player1] && session[:human1] == 'yes' || session[:active_player] == session[:player2] && session[:human2] == 'yes'
+				redirect '/board'
+			else
+				redirect '/make_move'
+			end
 		end
 
 	end
 
-	get '/change_player' do
+	get '/clear_sessions' do
 
-		if session[:active_player] == session[:player1]
-			session[:active_player] = session[:player2]
-		else
-			session[:active_player] = session[:player1]
-		end
+		session[:board] = nil
+		session[:active_player] = nil
+		session[:human1] = nil
+		session[:human2] = nil
+		session[:player1_type] = nil
+		session[:player2_type] = nil
 
-		if session[:active_player] == session[:player1] && session[:human1] == 'yes' || session[:active_player] == session[:player2] && session[:human2] == 'yes'
-			redirect '/board'
-		else
-			redirect '/make_move'
-		end
+		redirect '/'
 
 	end
+
+	# get '/change_player' do
+
+		# if session[:active_player] == session[:player1]
+		# 	session[:active_player] = session[:player2]
+		# else
+		# 	session[:active_player] = session[:player1]
+		# end
+
+	# 	if session[:active_player] == session[:player1] && session[:human1] == 'yes' || session[:active_player] == session[:player2] && session[:human2] == 'yes'
+	# 		redirect '/board'
+	# 	else
+	# 		redirect '/make_move'
+	# 	end
+
+	# end
 
 # end
